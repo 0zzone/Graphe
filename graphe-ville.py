@@ -1,11 +1,13 @@
+from time import sleep
 import json
 with open('villes.json') as json_file:
     data = json.load(json_file)
 
 
 def tableau_villes(t):
+    """ Cette fonction permet de transformer un tableau en chaîne de caractères. """
     if t == []:
-        return 'aucune ville'
+        return 'aucune ville '
     liste = ''
     for i in t:
         liste = liste+''+str(i) + ', '
@@ -16,10 +18,11 @@ def tableau_villes(t):
 choix = ['distance', 'temps', 'prix']
 unite = ['km', 'min', '€']
 def recherche(start, debut, fin, val, tab, numero):
+    """ Cette fonction permet de renvoyer le chemin le plus optimisé pour aller d'un point A à B en fonction d'une contrainte. """
     if debut == fin:
         return "Il y erreur, car la ville de départ est la même que celle d'arrivée."
     if fin in data[debut]:
-        return "Pour aller de " + str(start) + " à " + str(fin) + " , il faut passer par " + str(tableau_villes(tab)) + " pour un(e) " + choix[numero-1] + " de " + str(val+data[debut][fin][choix[numero-1]]) + " " + unite[numero-1]
+        return "Pour aller de " + str(start) + " à " + str(fin) + " , il faut passer par " + str(tableau_villes(tab)) + "pour un(e) " + choix[numero-1] + " de " + str(val+data[debut][fin][choix[numero-1]]) + " " + unite[numero-1] + "."
     else:
         t=[i for i in data[debut]]
         for i in range(len(t)-1):
@@ -29,10 +32,16 @@ def recherche(start, debut, fin, val, tab, numero):
 
 villes = ['Parme', 'La Spezia', 'Bologne', 'Florence', 'Perouse', 'Rome']
 def itineraire():
-    print('Voilà la liste des destinations proposées par l\'agence: \n 1) Parme \n 2) La Spezia \n 3) Bologne \n 4) Florence \n 5) Pérouse \n 6) Rome')
+    """ Cette fonction permet de rendre le code plus fluide à l'utilisation pour un utilisateur tiers. """
+    print('------------------------------------------------------------------------------------------')
+    print('Voilà la liste des destinations proposées par l\'agence:')
+    sleep(2)
+    print('\n 1) Parme \n 2) La Spezia \n 3) Bologne \n 4) Florence \n 5) Pérouse \n 6) Rome')
+    
+    print()
+    print()
 
-    print()
-    print()
+    sleep(3)
 
     print('Veuillez choisir la ville de départ et la ville d\'arrivée grâce au numéro de chaque ville:')
 

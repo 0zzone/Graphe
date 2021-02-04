@@ -40,8 +40,8 @@
             "temps": 99,
             "prix": 22
         },
-        "Pérouse": {
-            "nom": "Pérouse",
+        "Perouse": {
+            "nom": "Perouse",
             "distance": 245,
             "temps": 174,
             "prix": 30
@@ -60,8 +60,8 @@
             "temps": 99,
             "prix": 22
         },
-        "Pérouse":{
-            "nom": "Pérouse",
+        "Perouse":{
+            "nom": "Perouse",
             "distance": 150,
             "temps": 103,
             "prix": 20
@@ -73,7 +73,7 @@
             "prix": 42
         }
     },
-    "Pérouse":{
+    "Perouse":{
         "Bologne":{
             "nom": "Bologne",
             "distance": 245,
@@ -100,8 +100,8 @@
             "temps": 168,
             "prix": 42
         },
-        "Pérouse":{
-            "nom": "Pérouse",
+        "Perouse":{
+            "nom": "Perouse",
             "distance": 181,
             "temps": 127,
             "prix": 22
