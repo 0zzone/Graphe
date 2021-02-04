@@ -1,11 +1,13 @@
 {
     "Parme": {
         "La Spezia":{
+            "nom": "La Spezia",
             "distance": 124,
             "temps": 83,
             "prix": 25
         },
         "Bologne":{
+            "nom": "Bologne",
             "distance": 104,
             "temps": 71,
             "prix": 16
@@ -13,11 +15,13 @@
     },
     "La Spezia":{
         "Parme":{
+            "nom": "Parme",
             "distance": 124,
             "temps": 83,
             "prix": 25
         },
         "Florence":{
+            "nom": "Florence",
             "distance": 163,
             "temps": 106,
             "prix": 43
@@ -25,16 +29,19 @@
     },
     "Bologne":{
         "Parme":{
+            "nom": "Parme",
             "distance": 104,
             "temps": 71,
             "prix": 16
         },
         "Florence":{
+            "nom": "Florence",
             "distance": 131,
             "temps": 99,
             "prix": 22
         },
         "Pérouse": {
+            "nom": "Pérouse",
             "distance": 245,
             "temps": 174,
             "prix": 30
@@ -42,21 +49,25 @@
     },
     "Florence":{
         "La Spezia":{
+            "nom": "La Spezia",
             "distance": 163,
             "temps": 106,
             "prix": 43
         },
         "Bologne":{
+            "nom": "Bologne",
             "distance": 131,
             "temps": 99,
             "prix": 22
         },
         "Pérouse":{
+            "nom": "Pérouse",
             "distance": 150,
             "temps": 103,
             "prix": 20
         },
         "Rome":{
+            "nom": "Rome",
             "distance": 283,
             "temps": 168,
             "prix": 42
@@ -64,16 +75,19 @@
     },
     "Pérouse":{
         "Bologne":{
+            "nom": "Bologne",
             "distance": 245,
             "temps": 174,
             "prix": 30
         },
         "Florence":{
+            "nom": "Florence",
             "distance": 150,
             "temps": 103,
             "prix": 20
         },
         "Rome":{
+            "nom": "Rome",
             "distance": 181,
             "temps": 127,
             "prix": 22
@@ -81,11 +95,13 @@
     },
     "Rome":{
         "Florence":{
+            "nom": "Florence",
             "distance": 283,
             "temps": 168,
             "prix": 42
         },
         "Pérouse":{
+            "nom": "Pérouse",
             "distance": 181,
             "temps": 127,
             "prix": 22
