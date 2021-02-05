@@ -35,23 +35,31 @@ def itineraire():
     """ Cette fonction permet de rendre le code plus fluide à l'utilisation pour un utilisateur tiers. """
     print('------------------------------------------------------------------------------------------')
     print('Voilà la liste des destinations proposées par l\'agence:')
-    sleep(2)
+    sleep(0.5)
     print('\n 1) Parme \n 2) La Spezia \n 3) Bologne \n 4) Florence \n 5) Pérouse \n 6) Rome')
-    
+
     print()
     print()
 
-    sleep(3)
+    sleep(1)
 
     print('Veuillez choisir la ville de départ et la ville d\'arrivée grâce au numéro de chaque ville:')
 
-    depart = int(input('Ville de départ: '))
-    destination = int(input('Ville d\'arrivée: '))
-    if depart < 0 or depart > 6 or destination < 0 or destination > 6:
-        print('Vous avez commis une erreur, rééssayez.')
-
+    r='N'
+    while r=='N':
         depart = int(input('Ville de départ: '))
         destination = int(input('Ville d\'arrivée: '))
+        while 1 > depart and depart==destination or depart > 6:
+            print('Vous avez commis une erreur, rééssayez.')
+            depart = int(input('Ville de départ: '))
+        while 1 > destination or destination > 6 or depart==destination:
+            print('Vous avez commis une erreur, rééssayez.')
+            destination = int(input('Ville d\'arrivée: '))
+        print('Départ : '+ villes[depart-1]+ ' --> destination : '+ villes[destination-1])
+        r=(input('Veuillez confirmer votre trajet en rentrant Y. Si vous souhaitez le redéfinir, rentrez N.'))
+
+
+
     depart = villes[depart-1]
     destination = villes[destination-1]
 
@@ -59,11 +67,11 @@ def itineraire():
 
     print('Vous avez la possibilité de choisir une contrainte de voyage: \n 1) L\'itinéraire le plus court \n 2) L\'itinéraire le plus rapide \n 3) L\'itinéraire le moins cher')
     choix = int(input('Votre choix: '))
-    if choix < 0 or choix > 3:
+    if choix < 1 or choix > 3:
         print('Vous venez de faire une erreur, réésayez.')
 
         choix = int(input('Votre choix: '))
-    
+
     print(recherche(depart, depart, destination, 0, [], int(choix)))
 
 
