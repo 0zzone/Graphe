@@ -4,7 +4,6 @@ import json
 with open('villes.json') as json_file:
     data = json.load(json_file)
 
-
 def tableau_villes(t):
     """ Cette fonction permet de transformer un tableau en chaîne de caractères. """
     if t == []:
@@ -14,13 +13,10 @@ def tableau_villes(t):
         liste = liste+''+str(i) + ', '
     return liste
 
-
 # On définit les variables importantes du programme
 villes = ['Parme', 'La Spezia', 'Bologne', 'Florence', 'Perouse', 'Rome']
 choix = ['distance', 'temps', 'prix']
 unite = ['km', 'min', '€']
-
-
 
 def recherche(start, debut, fin, val, tab, numero):
     """ Cette fonction permet de renvoyer le chemin le plus optimisé pour aller d'un point A à B en fonction d'une contrainte. """
@@ -34,9 +30,6 @@ def recherche(start, debut, fin, val, tab, numero):
             if t[i] in tab:
                 return('Ville déjà visitée !')
             return min(recherche(start, t[i], fin, val+data[debut][t[i]][choix[numero-1]], tab+[t[i]], numero), recherche(start, t[i+1], fin, val+data[debut][t[i+1]][choix[numero-1]], tab+[t[i+1]], numero))
-
-
-
 
 def itineraire():
     """ Cette fonction permet de rendre le code plus fluide à l'utilisation pour un utilisateur tiers. """
@@ -65,8 +58,6 @@ def itineraire():
         print('Départ : '+ villes[depart-1]+ ' --> destination : '+ villes[destination-1])
         r=(input('Veuillez confirmer votre trajet en rentrant Y. Si vous souhaitez le redéfinir, rentrez N: '))
 
-
-
     depart = villes[depart-1]
     destination = villes[destination-1]
 
@@ -76,10 +67,7 @@ def itineraire():
     choix = int(input('Votre choix: '))
     if choix < 1 or choix > 3:
         print('Vous venez de faire une erreur, réésayez.')
-
         choix = int(input('Votre choix: '))
-
     print(recherche(depart, depart, destination, 0, [], int(choix)))
-
 
 itineraire()
