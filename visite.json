@@ -1,0 +1,20 @@
+{
+    "Parme":{
+        "lieu": "la cathédrale de Parme"
+    },
+    "La Spezia":{
+        "lieu": "le château de San Giorgio"
+    },
+    "Bologne":{
+        "lieu": "la Piazza Maggiore"
+    },
+    "Florence":{
+        "lieu": "la cathédrale de Florence"
+    },
+    "Perouse":{
+        "lieu": "le musée archéologique"
+    },
+    "Rome":{
+        "lieu": "le colisée"
+    }
+}

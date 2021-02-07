@@ -3,15 +3,22 @@ from time import sleep
 import json
 with open('villes.json') as json_file:
     data = json.load(json_file)
+with open('visite.json') as json_file:
+    visites = json.load(json_file)
 
 def tableau_villes(t):
     """ Cette fonction permet de transformer un tableau en chaîne de caractères. """
-    if t == []:
-        return 'aucune ville '
     liste = ''
     for i in t:
         liste = liste+''+str(i) + ', '
     return liste
+
+def visite_locale(t):
+    liste = 'Sur votre chemin, vous pourrez visiter '
+    for i in t:
+        liste = liste + visites[i]['lieu'] + " à " + i + ", "
+    return liste
+
 
 # On définit les variables importantes du programme
 villes = ['Parme', 'La Spezia', 'Bologne', 'Florence', 'Perouse', 'Rome']
@@ -23,7 +30,9 @@ def recherche(start, debut, fin, val, tab, numero):
     if debut == fin:
         return "Il y erreur, car la ville de départ est la même que celle d'arrivée."
     if fin in data[debut]:
-        return "Pour aller de " + str(start) + " à " + str(fin) + " , il faut passer par " + str(tableau_villes(tab)) + "pour un(e) " + choix[numero-1] + " de " + str(val+data[debut][fin][choix[numero-1]]) + " " + unite[numero-1] + "."
+        if tab == []:
+            return "Pour aller de " + str(start) + " à " + str(fin) + ", vous aurez un(e) " + choix[numero-1] + " de " + str(val+data[debut][fin][choix[numero-1]]) + " " + unite[numero-1] + "."
+        return "Pour aller de " + str(start) + " à " + str(fin) + " , il faut passer par " + str(tableau_villes(tab)) + "pour un(e) " + choix[numero-1] + " de " + str(val+data[debut][fin][choix[numero-1]]) + " " + unite[numero-1] + ". " + str(visite_locale(tab))
     else:
         t=[i for i in data[debut]]
         for i in range(len(t)-1):
