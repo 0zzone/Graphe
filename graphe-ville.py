@@ -25,7 +25,8 @@ def visite_locale(t):
 # On définit les variables importantes du programme
 villes = ['Parme', 'La Spezia', 'Bologne', 'Florence', 'Perouse', 'Rome']
 choix = ['distance', 'temps', 'prix']
-choix_text = ['le plus court', 'le plus rapide', 'le moins cher']
+article = ['une', 'un', 'un']
+choix_text = ['le plus court.', 'le plus rapide.', 'le moins cher.']
 unite = ['km', 'min', '€']
 
 def recherche(start, debut, fin, val, tab, numero):
@@ -35,16 +36,15 @@ def recherche(start, debut, fin, val, tab, numero):
     if fin in data[debut]:
         if tab == []:
             print('\033[32m')
-            return "Pour aller de " + str(start) + " à " + str(fin) + ", vous aurez un(e) " + choix[numero-1] + " de " + str(val+data[debut][fin][choix[numero-1]]) + " " + unite[numero-1] + "."
+            return "Pour aller de " + str(start) + " à " + str(fin) + ", vous aurez " + article[numero-1] + " " + choix[numero-1] + " de " + str(val+data[debut][fin][choix[numero-1]]) + " " + unite[numero-1] + "."
         print('\033[32m')
-        return "Pour aller de " + str(start) + " à " + str(fin) + " , il faut passer par " + str(tableau_villes(tab)) + "pour un(e) " + choix[numero-1] + " de " + str(val+data[debut][fin][choix[numero-1]]) + " " + unite[numero-1] + ". " + str(visite_locale(tab))
+        return "Pour aller de " + str(start) + " à " + str(fin) + " , il faut passer par " + str(tableau_villes(tab)) + "pour " + article[numero-1] + ' ' + choix[numero-1] + " de " + str(val+data[debut][fin][choix[numero-1]]) + " " + unite[numero-1] + ". " + str(visite_locale(tab))
     else:
         t=[i for i in data[debut]]
         for i in range(len(t)-1):
-            if t[i] in tab:
-                return('Ville déjà visitée !')
-            return min(recherche(start, t[i], fin, val+data[debut][t[i]][choix[numero-1]], tab+[t[i]], numero), recherche(start, t[i+1], fin, val+data[debut][t[i+1]][choix[numero-1]], tab+[t[i+1]], numero))
-
+            if not t[i] in tab:
+                return min(recherche(start, t[i], fin, val+data[debut][t[i]][choix[numero-1]], tab+[t[i]], numero), recherche(start, t[i+1], fin, val+data[debut][t[i+1]][choix[numero-1]], tab+[t[i+1]], numero))
+            return 'Ville déjà visitée'
 def itineraire():
     """ Cette fonction permet de rendre le code plus fluide à l'utilisation pour un utilisateur tiers. """
     print('------------------------------------------------------------------------------------------')
@@ -94,7 +94,7 @@ def itineraire():
     print('\033[0m')
     print('Vous avez la possibilité de choisir une contrainte de voyage: ')
     print('\033[35m')
-    print(' \n1) L\'itinéraire le plus court \n 2) L\'itinéraire le plus rapide \n 3) L\'itinéraire le moins cher')
+    print(' \n 1) L\'itinéraire le plus court \n 2) L\'itinéraire le plus rapide \n 3) L\'itinéraire le moins cher')
     print('\033[0m')
     choix = int(input('\nVotre choix: '))
     if choix < 1 or choix > 3:
